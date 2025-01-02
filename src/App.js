@@ -9,13 +9,13 @@ function App() {
 
   const handlePrevious = () => {
     if (step > 1) {
-      setStep(step - 1);
+      setStep((curStep) => curStep - 1);
     }
   };
 
   const handleNext = () => {
     if (step < 3) {
-      setStep(step + 1);
+      setStep((curStep) => curStep + 1);
     }
   };
 
