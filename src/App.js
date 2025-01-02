@@ -19,6 +19,10 @@ function App() {
     }
   };
 
+  const changeStep = (num) => {
+    setStep(num);
+  };
+
   return (
     <>
       <button className="close" onClick={() => setIsOpen(!isOpen)}>
@@ -27,9 +31,24 @@ function App() {
       {isOpen && (
         <div className="steps">
           <div className="numbers">
-            <div className={`${step >= 1 ? "active" : ""}`}>1</div>
-            <div className={`${step >= 2 ? "active" : ""}`}>2</div>
-            <div className={`${step >= 3 ? "active" : ""}`}>3</div>
+            <div
+              className={`${step >= 1 ? "active" : ""}`}
+              onClick={() => changeStep(1)}
+            >
+              1
+            </div>
+            <div
+              className={`${step >= 2 ? "active" : ""}`}
+              onClick={() => changeStep(2)}
+            >
+              2
+            </div>
+            <div
+              className={`${step >= 3 ? "active" : ""}`}
+              onClick={() => changeStep(3)}
+            >
+              3
+            </div>
           </div>
 
           <p className="message">
