@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 const messages = ["Learn React *", "Apply for jobs", "Invest your new income."];
+const jobs = ["Food vendor", "Musician", "Digital Artist"];
 
 function App() {
   const btnStyle = { backgroundColor: "#7950f2", color: "#fff" };
-  const step = 2;
+  const [step, setStep] = useState(1);
+
+  const handlePrevious = () => {
+    if (step > 1) {
+      setStep((prevValue) => prevValue - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (step < 3) {
+      setStep((prevValue) => prevValue + 1);
+    }
+  };
 
   return (
     <div className="steps">
@@ -19,8 +32,12 @@ function App() {
       </p>
 
       <div className="buttons">
-        <button style={btnStyle}>Previous</button>
-        <button style={btnStyle}>Next</button>
+        <button style={btnStyle} onClick={handlePrevious}>
+          Previous
+        </button>
+        <button style={btnStyle} onClick={handleNext}>
+          Next
+        </button>
       </div>
     </div>
   );
